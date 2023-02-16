@@ -1,11 +1,13 @@
-import { useState } from 'react';
-//import reactLogo from './assets/react.svg';
 import './App.scss';
 
+
+//Components
 import Navigation from './Components/Navigation/Navigation'
 import SearchBar from './Components/SearchBar/SearchBar'
+import Results from './Components/Results/Results';
 
 
+//Assets
 import imgBG from './assets/img/search-bg.png';
 import videoBG from './assets/search-vbg.webm';
 
@@ -14,9 +16,8 @@ import videoBG from './assets/search-vbg.webm';
 
 
 
-function App() {
-  const [count, setCount] = useState(0)
 
+export default function App() {
   return (
     <>
       <video className="bg-video"
@@ -31,12 +32,9 @@ function App() {
       <div className="container">
         <Navigation />
         <SearchBar />
-        <div className="results"></div>
+        <Results />
       </div>
       <div className="footer"></div>
     </>
-
   )
 }
-
-export default App

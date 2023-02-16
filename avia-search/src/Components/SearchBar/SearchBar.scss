@@ -1,9 +1,78 @@
+@import '../../vars.scss';
+
 .search-bar {
+    margin: auto;
     grid-area: search-bar;
-    background-color: rgba(56, 25, 181, 0.326);
-    display: grid; 
-    grid-template-rows: 1fr 1fr; 
-    gap: 0px 0px; 
-    width: 100%; 
-    height: 100%; 
+    //background-color: rgba(56, 25, 181, 0.326);
+    display: grid;
+    grid-template-columns: 1.5fr 0.4fr 1.5fr 1fr 1fr 1.2fr 1.2fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1em 1em;
+    grid-template-areas:
+        "ticket-type ticket-type ticket-type ticket-type ticket-type . ."
+        "city-origin switch-city city-dest date-start date-end choose-params find-button";
+    width: 100%;
+    height: 10rem;
+    //background-color: orangered;
+    align-items: end;
+    justify-items: center;
+
+
+
+
+    &__city-origin {
+        grid-area: city-origin;
+        width: 100%;
+        background-color: white;
+        border-radius: var(--chakra-radii-md);
+        //background-color: green;
+    }
+
+    &__city-dest {
+        grid-area: city-dest;
+        width: 100%;
+        background-color: white;
+        border-radius: var(--chakra-radii-md);
+        //background-color: green;
+    }
+
+    &__date-start {
+        grid-area: date-start;
+        //background-color: rgb(0, 4, 128);
+    }
+
+    &__date-end {
+        grid-area: date-end;
+        //background-color: rgb(0, 4, 128);
+    }
+
+    &__choose-params {
+        grid-area: choose-params;
+        //background-color: rgb(0, 92, 128);
+    }
+
+    &__params-container{
+        display: flex;
+        align-items: center;
+
+        &>span{
+            margin-right: 1rem;
+        }
+    }
+
+    &__find-button {
+        grid-area: find-button;
+        width: 100%;
+
+        &>span {
+            margin-right: 1em;
+        }
+
+        //background-color: rgb(0, 92, 128);
+    }
+
+    &__switch-city {
+        grid-area: switch-city;
+        //background-color: rgb(0, 92, 128);
+    }
 }

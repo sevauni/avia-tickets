@@ -1,19 +1,19 @@
-import React from "react";
-import { Avatar } from "@chakra-ui/avatar";
-import { Divider } from '@chakra-ui/react';
 
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons'
+//Libraries
+import { Avatar, Button, ButtonGroup } from '@chakra-ui/react';
 import { FaPercentage, FaStar, FaHeadset } from "react-icons/fa";
+
+//Scss
+import './Navigation.scss';
+
+
+//Assets
 import Logo from '../../assets/img/icon.svg';
 
 
-
-import './Navigation.scss';
-
 export default function Navigation({ }) {
     return (
-        <div className="navigation">
+        <nav className="navigation">
             <a href="./#">
                 <img src={Logo} width='60px' alt="description do not forget~!!!!!" />
                 <h1>MockTravel</h1>
@@ -38,6 +38,6 @@ export default function Navigation({ }) {
             <div className="navigation__avatar" >
                 <Avatar name="Ryan Florence" size='lg' src="https://bit.ly/ryan-florence" />
             </div>
-        </div>
+        </nav>
     );
 }

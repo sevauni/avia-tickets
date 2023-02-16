@@ -1,0 +1,22 @@
+.portal-param {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem 0;
+    height: 100%;
+
+    &>div>h6 {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    &>div>span {
+        opacity: 0.9;
+    }
+
+    &__class-select {
+        grid-row: -1;
+        grid-column: 1 /-1;
+    }
+
+}
