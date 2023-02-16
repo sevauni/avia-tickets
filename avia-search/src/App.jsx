@@ -2,10 +2,15 @@ import { useState } from 'react';
 //import reactLogo from './assets/react.svg';
 import './App.scss';
 
+import Navigation from './Components/Navigation'
 
 
 import imgBG from './assets/img/search-bg.png';
 import videoBG from './assets/search-vbg.webm';
+
+
+
+
 
 
 function App() {
@@ -23,10 +28,9 @@ function App() {
         <source src={videoBG} type="video/webm" />
       </video>
       <div className="container">
-        <div className="navigation"></div>
+        <Navigation />
         <div className="search-bar"></div>
         <div className="results"></div>
-        
       </div>
       <div className="footer"></div>
     </>

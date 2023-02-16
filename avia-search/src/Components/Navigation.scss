@@ -1,0 +1,41 @@
+.navigation {
+    grid-area: navigation;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    //background-color: rgb(0, 246, 41);
+
+
+    &>* {
+        flex-grow: 0;
+    }
+
+    &_margins {
+        margin-left: 3rem;
+    }
+
+    &__spacer {
+        flex-grow: 1;
+    }
+
+    &>a {
+        display: flex;
+        align-items: center;
+    }
+
+    &>h1 {
+        margin-left: 1rem;
+        display: inline-block;
+        font-size: 2em;
+    }
+
+    &__avatar {
+        margin: 0 1rem;
+    }
+
+
+
+
+}
