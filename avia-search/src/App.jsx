@@ -12,12 +12,21 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="container">     
-    asdasd 
-      {/* <video className="search-area__bg" playsInline autoPlay muted  poster={imgBG} id="bgvid">
+    <>
+      <video className="bg-video"
+        playsInline
+        autoPlay
+        muted
+        poster={imgBG}
+        preload="metadata"
+      >
         <source src={videoBG} type="video/webm" />
-      </video> */}
-    </div>
+      </video>
+      <div className="container">
+        <div className="navigation"></div>
+      </div>
+    </>
+
   )
 }
 
