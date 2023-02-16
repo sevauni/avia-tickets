@@ -1,11 +1,11 @@
 import React from "react";
 import { Avatar } from "@chakra-ui/avatar";
 import { Divider } from '@chakra-ui/react';
-import Logo from '../assets/img/icon.svg';
+
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons'
 import { FaPercentage, FaStar, FaHeadset } from "react-icons/fa";
-
+import Logo from '../../assets/img/icon.svg';
 
 
 

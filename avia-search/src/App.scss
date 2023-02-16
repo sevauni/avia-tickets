@@ -13,7 +13,8 @@
   object-fit: cover;
   height: 31rem;
   width: 100%;
-
+  
+  filter: brightness(50%);
   //animation-name: bg-video-darken;
   animation-fill-mode: forwards;
   animation-duration: 6s;
@@ -59,11 +60,7 @@
 
 
 
-.search-bar {
-  grid-area: search-bar;
-  background-color: rgba(56, 25, 181, 0.326);
 
-}
 
 .results {
 

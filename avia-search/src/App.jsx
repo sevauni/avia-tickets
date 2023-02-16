@@ -2,7 +2,8 @@ import { useState } from 'react';
 //import reactLogo from './assets/react.svg';
 import './App.scss';
 
-import Navigation from './Components/Navigation'
+import Navigation from './Components/Navigation/Navigation'
+import SearchBar from './Components/SearchBar/SearchBar'
 
 
 import imgBG from './assets/img/search-bg.png';
@@ -29,7 +30,7 @@ function App() {
       </video>
       <div className="container">
         <Navigation />
-        <div className="search-bar"></div>
+        <SearchBar />
         <div className="results"></div>
       </div>
       <div className="footer"></div>
