@@ -1,15 +1,15 @@
 #root {
   width: 100%;
   min-height: 100vh;
-  height: 900px;
+  height: fit-content;
   //max-width: 1280px;
   background-color: red;
-
+  position: relative;
 }
 
 
 .bg-video {
-  position: fixed;
+  position: absolute;
   object-fit: cover;
   height: 33rem;
   width: 100%;
@@ -23,20 +23,21 @@
   position: relative;
   margin: 0 auto;
   width: clamp(400px, 95%, 1200px);
-  height: 80%;
-  background-color: rgba(17, 174, 201, 0.532);
+  background-color: rgba(32, 201, 17, 0.532);
 
 
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 8rem 25rem;
-   gap: 0px 0px;
+  grid-template-rows: 8rem 25rem auto 6rem;
+  gap: 0px 0px;
   grid-template-areas:
     "navigation"
-    "search-bar";
+    "search-bar"
+    "results"
+    "footer";
   justify-content: center;
-  align-content:start;
+  align-content: start;
 }
 
 
@@ -50,7 +51,7 @@
 
 .search-bar {
   grid-area: search-bar;
-  background-color: rgb(56, 25, 181);
+  background-color: rgba(56, 25, 181, 0.326);
 
 }
 
@@ -61,7 +62,10 @@
 }
 
 .footer {
-  grid-area: footer;
-  height: 300px;
-  background-color: rgb(54, 6, 243);
+  //grid-area: footer;
+  background-color: rgb(19, 193, 209);
+  position: absolute;
+ bottom: 0;
+  height: 6rem;
+  width: 100%;
 }

@@ -24,7 +24,11 @@ function App() {
       </video>
       <div className="container">
         <div className="navigation"></div>
+        <div className="search-bar"></div>
+        <div className="results"></div>
+        
       </div>
+      <div className="footer"></div>
     </>
 
   )
