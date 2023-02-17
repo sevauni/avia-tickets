@@ -21,7 +21,7 @@ import './ParamsPortal.scss';
 
 export function ChooseParams(props) {
   return <div className={props.className}>
-    <Popover>
+    <Popover >
       <PopoverTrigger>
         <Button>1 Adult, Econom</Button>
       </PopoverTrigger>

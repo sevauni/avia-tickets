@@ -5,12 +5,7 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "avia-search/src/index.css": true,
-        "avia-search/src/main.jsx": true
+        "**/Thumbs.db": true
     },
-    "hide-files.files": [
-        "avia-search/src/index.css",
-        "avia-search/src/main.jsx"
-    ]
+    "hide-files.files": []
 }

@@ -20,6 +20,7 @@ import './Ticket.scss';
 
 export function Ticket({ }) {
   return <div className="ticket">
+    <div className='ticket__tear-marks-line' ></div>
     <div className="ticket__price">
       <h2>₪1,536</h2>
     </div>

@@ -2,10 +2,8 @@
   grid-area: results;
   min-height: 600px;
   height: fit-content;
-  background-color: rgb(192, 25, 170);
   display: grid; 
   grid-template-columns: 1fr 3fr;
-
 }
 
 .results-ticket-container {

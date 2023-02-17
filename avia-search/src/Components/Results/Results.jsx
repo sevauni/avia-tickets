@@ -9,7 +9,14 @@ export default function Results({ }) {
 
     <div className="results">
       <ResultsSort />
-      <div className='results-ticket-container'>      <Ticket /></div>
+      <div className='results-ticket-container'>  
+          <Ticket />
+          <Ticket />
+          <Ticket />
+          <Ticket />
+          <Ticket />
+          <Ticket />
+          </div>
     </div>
   );
 }

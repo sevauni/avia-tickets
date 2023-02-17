@@ -1,23 +1,41 @@
 @import '../../vars.scss';
 
 .search-bar {
+     position: sticky;
+
+     top: -2rem;
+     z-index: 2;
+
     margin: auto;
     grid-area: search-bar;
     //background-color: rgba(56, 25, 181, 0.326);
     display: grid;
     grid-template-columns: 1.5fr 0.4fr 1.5fr 1fr 1fr 1.2fr 1.2fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1em 1em;
+    grid-template-rows: 1fr 1fr 0.1fr;
+    gap: 0.5em 1em;
     grid-template-areas:
         "ticket-type ticket-type ticket-type ticket-type ticket-type . ."
-        "city-origin switch-city city-dest date-start date-end choose-params find-button";
+        "city-origin switch-city city-dest date-start date-end choose-params find-button"
+        ". . . . . . .";
     width: 100%;
-    height: 10rem;
+    height: 7rem;
     //background-color: orangered;
     align-items: end;
     justify-items: center;
 
 
+
+
+    &__scroll-background {
+        align-self: start;
+        background-color:$seconadry;
+        grid-row: 1/4;
+        grid-column: 1/-1;
+        height: 100%;
+        width: 105%;
+        border-radius: 0  0 15px 15px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    }
 
 
     &__city-origin {
@@ -48,14 +66,15 @@
 
     &__choose-params {
         grid-area: choose-params;
+        
         //background-color: rgb(0, 92, 128);
     }
 
-    &__params-container{
+    &__params-container {
         display: flex;
         align-items: center;
 
-        &>span{
+        &>span {
             margin-right: 1rem;
         }
     }

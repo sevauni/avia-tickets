@@ -1,8 +1,10 @@
+@import './vars.scss';
+
 #root {
   width: 100%;
   min-height: 100vh;
   height: fit-content;
-  background-color: red;
+  background-color: $background;
   position: relative;
   padding-bottom: 6rem; ///for footer
 }
