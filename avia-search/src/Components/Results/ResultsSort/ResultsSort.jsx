@@ -72,8 +72,6 @@ export function ResultsSort(
 }
 
 
-
-
 function MaxFlightDuration({ maxFlightDuration, minFlightDuration }) {
   //0.7 is almost 2/3 of max price
 const twoThirdsOfMax =Math.floor(maxFlightDuration * 0.7);
@@ -121,8 +119,6 @@ const twoThirdsOfMax =Math.floor(maxFlightDuration * 0.7);
 
   )
 }
-
-
 
 
 function CheckAirlines({ airlinesList }) {
@@ -221,6 +217,7 @@ function CheckSwitch({ filterName, filterLabel }) {
       alignItems='center'
       justifyContent='space-between'
       mb={5}
+      
     >
       <FormLabel
         htmlFor={filterName}
@@ -231,6 +228,7 @@ function CheckSwitch({ filterName, filterLabel }) {
       <Switch
         size='lg'
         id={filterName}
+        defaultChecked
       />
     </FormControl>
   );

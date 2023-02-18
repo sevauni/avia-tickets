@@ -9,17 +9,17 @@ export default function Results({ }) {
 
     <div className="results">
       <ResultsSort />
-      <div className='results-ticket-container'>  
-          <Ticket
+      <div className='results-ticket-container'>
+        <Ticket
           isLoaded
           ticketPrice={1500}
-          />
-          <Ticket 
-                 isLoaded
-                 ticketPrice={1500}
-          />
-          <Ticket />
-          </div>
+        />
+        <Ticket
+          isLoaded
+          ticketPrice={1500}
+        />
+        <Ticket />
+      </div>
     </div>
   );
 }

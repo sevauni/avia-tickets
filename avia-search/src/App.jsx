@@ -35,14 +35,14 @@ export default function App() {
 
       <CookieConsent
         location="bottom"
-        buttonText="Sure man!!"
+        buttonText="I agree"
         cookieName="myAwesomeCookieName2"
-        style={{ background: "#2B373B" }}
-        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+        style={{ background: "#8ea5a0",color:"#081158",fontWeight:"bold" }}
+        buttonStyle={{ color: "#F2ECFF", fontSize: "1rem",background:"#081158" }}
         expires={150}
+        //debug={true}
       >
-        This website uses cookies to enhance the user experience.{" "}
-        <span style={{ fontSize: "10px" }}>This bit of text is smaller :O</span>
+        This website uses cookies to enhance the user experience.
       </CookieConsent>
 
       <div className="container">
