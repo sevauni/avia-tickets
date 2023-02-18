@@ -32,7 +32,11 @@ export default function App() {
       <div className="container">
         <Navigation />
         <SearchBar />
-        <Results />
+     {
+     true
+     ?    <Results />
+     : null
+     }
       </div>
       <div className="footer"></div>
     </>

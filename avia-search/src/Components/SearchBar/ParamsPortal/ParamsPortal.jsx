@@ -51,13 +51,13 @@ export function ChooseParams(props) {
               <Button
                 colorScheme='teal'
                 variant='solid'
-              >Red</Button>
+              >Economy</Button>
               <Button
                 variant='outline'
-              >Save</Button>
+              >Business</Button>
               <Button
                 variant='outline'
-              >Save</Button>
+              >First</Button>
             </ButtonGroup>
           </PopoverBody>
         </PopoverContent>

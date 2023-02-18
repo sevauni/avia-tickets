@@ -64,7 +64,7 @@ export function ResultsSort({ }) {
       <CheckSwitch />
       <Divider mb={5} />
 
-      <Button colorScheme='teal' size='lg' alignSelf="center">
+      <Button colorScheme='brand' size='lg' alignSelf="center">
         Reset filter
       </Button>
     </div>
@@ -85,6 +85,7 @@ function MaxFlightDuration(props) {
       </Heading>
       <Slider
         h="10"
+        
         id='slider-duration'
         step={1}
         defaultValue={9}
@@ -98,7 +99,7 @@ function MaxFlightDuration(props) {
          onMouseLeave={() => setShowTooltip(false)}
         onBlur={() => setShowTooltip(false)}
       >
-        <SliderTrack>
+        <SliderTrack bg='blue.200'>
           <SliderFilledTrack />
         </SliderTrack>
 
@@ -109,7 +110,7 @@ function MaxFlightDuration(props) {
           isOpen={showTooltip}
           label={`${sliderValue}`}
         >
-          <SliderThumb />
+          <SliderThumb  bg='brand.500'/>
         </Tooltip>
       </Slider>
     </>
@@ -177,7 +178,7 @@ function SliderTicketPrice({ }) {
          onMouseLeave={() => setShowTooltip(false)}
         onBlur={() => setShowTooltip(false)}
       >
-        <SliderTrack>
+        <SliderTrack bg='blue.200'>
           <SliderFilledTrack />
         </SliderTrack>
 
@@ -188,7 +189,7 @@ function SliderTicketPrice({ }) {
           isOpen={showTooltip}
           label={`${sliderValue}`}
         >
-          <SliderThumb />
+          <SliderThumb  bg='brand.500'/>
         </Tooltip>
       </Slider>
     </>

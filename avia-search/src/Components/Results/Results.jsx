@@ -10,11 +10,14 @@ export default function Results({ }) {
     <div className="results">
       <ResultsSort />
       <div className='results-ticket-container'>  
-          <Ticket />
-          <Ticket />
-          <Ticket />
-          <Ticket />
-          <Ticket />
+          <Ticket
+          isLoaded
+          ticketPrice={1500}
+          />
+          <Ticket 
+                 isLoaded
+                 ticketPrice={1500}
+          />
           <Ticket />
           </div>
     </div>

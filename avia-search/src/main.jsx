@@ -12,17 +12,29 @@ import { extendTheme } from "@chakra-ui/react"
 
 const theme = extendTheme({
   "colors": {
-    "teal": {
-      "50": "#E8EAFD",
-      "100": "#BEC4F9",
-      "200": "#939EF5",
-      "300": "#6979F1",
-      "400": "#3F53EE",
-      "500": "#152DEA",
-      "600": "#1124BB",
-      "700": "#0D1B8C",
-      "800": "#08125E",
-      "900": "#04092F"
+    "brand": {
+      "50": "#0089FF",
+      "100": "#0089FF",
+      "200": "#939CF6",
+      "300": "#6976F2",
+      "400": "#3F4FEE",
+      "500": "#0089FF",
+      "600": "#112A46",
+      "700": "#112A46",
+      "800": "#112A46",
+      "900": "#112A46"
+    },
+    "brandSecond": {
+      "50": "#0089FF",
+      "100": "#0089FF",
+      "200": "#939CF6",
+      "300": "#6976F2",
+      "400": "#3F4FEE",
+      "500": "#0067FF",
+      "600": "#112A46",
+      "700": "#112A46",
+      "800": "#112A46",
+      "900": "#112A46"
     }
   }
 }
@@ -33,7 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
 
-    <ChakraProvider >
+    <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>
   </React.StrictMode>,

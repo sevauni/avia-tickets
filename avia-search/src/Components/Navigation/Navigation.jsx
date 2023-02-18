@@ -20,19 +20,19 @@ export default function Navigation({ }) {
             </a>
 
             <div className="navigation__spacer" ></div>
-            <ButtonGroup variant='ghost' spacing='2'>
-                <Button colorScheme='teal' leftIcon={<FaPercentage />}>
+            <ButtonGroup variant='outline' spacing='2'>
+                <Button colorScheme='brand' leftIcon={<FaPercentage />}>
                     Sales
                 </Button>
-                <Button colorScheme='teal' leftIcon={<FaStar />}>
+                <Button colorScheme='brand' leftIcon={<FaStar />}>
                     Favorites
                 </Button>
-                <Button colorScheme='teal' leftIcon={<FaHeadset />} >
+                <Button colorScheme='brand' leftIcon={<FaHeadset />} >
                     Support
                 </Button>
 
             </ButtonGroup>
-            <Button className="navigation_margins" colorScheme='teal' >
+            <Button className="navigation_margins" colorScheme='brandSecond' bg="blue.500" >
                 My Profile
             </Button>
             <div className="navigation__avatar" >

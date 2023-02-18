@@ -1,10 +1,12 @@
+@import '../../../vars.scss';
+
 .results-sort {
   position: sticky;
-  top:8rem;
+  top:6rem;
   z-index: 1;
   width: 100%;
   height: fit-content;
-  background-color: ivory;
+  background-color: $seconadry;
   border-radius: 1rem;
   margin-bottom: 4rem;
   margin-top: 2rem;

@@ -117,7 +117,13 @@ export default function SearchBar({ }) {
       <DatePicker className="search-bar__date-start" />
       <DatePicker className="search-bar__date-end" />
       <ChooseParams className="search-bar__choose-params" />
-      <Button className="search-bar__find-button" colorScheme='teal' variant='solid'>
+      <Button className="search-bar__find-button"
+        colorScheme='brand'
+        variant='solid'
+        bg="blue.500"
+        isLoading
+        loadingText='Searching...'
+      >
         <span>Search</span>
         <FaSearch />
       </Button>
