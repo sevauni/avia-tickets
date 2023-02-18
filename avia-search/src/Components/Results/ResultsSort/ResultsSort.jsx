@@ -1,39 +1,26 @@
-import React from "react";
+//Libraries
+
+import { useState } from "react";
 import {
-  ButtonGroup,
-  IconButton,
   Tooltip,
-  Stack,
-  Avatar,
-  Checkbox,
+  Stack, Checkbox,
   FormControl,
   FormLabel,
-  Heading
-
-
-} from '@chakra-ui/react';
-import { Button } from '@chakra-ui/react'
-import { useEffect } from 'react';
-import { Switch } from '@chakra-ui/react'
-import {
+  Heading,
+  Button,
+  Switch,
   Slider,
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
-  SliderMark
+  Divider,
 } from '@chakra-ui/react';
 
-import { Divider } from '@chakra-ui/react'
+
+//Scss
 import './ResultsSort.scss';
-import {
-  RangeSlider,
-  RangeSliderTrack,
-  RangeSliderFilledTrack,
-  RangeSliderThumb,
-  Box
-} from '@chakra-ui/react'
 
-
+//styles for popup Labeles
 const labelStyles = {
   mt: '2',
   ml: '-2.5',
@@ -41,29 +28,42 @@ const labelStyles = {
 }
 
 
-const delay = ms => new Promise(
-  resolve => setTimeout(resolve, ms)
-);
+export function ResultsSort(
+  { airlinesList = ["El Al", "WizzAir"],
+    filterSwitches = [
+      { filterLabel: "Baggage included", filterName: "filter-baggage" },
+      { filterLabel: "Overnight Layover", filterName: "filter-overnight-layover" },
+      { filterLabel: "Long Layover", filterName: "filter-long-layover" }
+    ],
+    maxPrice = 5000,
+    minPrice = 0,
+    maxFlightDuration = 19,
+    minFlightDuration = 1,
+  }) {
+
+  const filteredButtons = (filterSwitches) => {
+    return filterSwitches.map(item => {
+      return CheckSwitch(item);
+    })
+  }
 
 
 
-export function ResultsSort({ }) {
   return (
     <div className='results-sort'>
-
-      <MaxFlightDuration />
-
-
+      <MaxFlightDuration
+        minFlightDuration={minFlightDuration}
+        maxFlightDuration={maxFlightDuration} />
       <Divider mb={5} />
-      <SliderTicketPrice />
+      <SliderTicketPrice
+        minPrice={minPrice}
+        maxPrice={maxPrice}
+      />
       <Divider mb={5} />
-      < CheckAirlines />
+      <CheckAirlines airlinesList={airlinesList} />
       <Divider mb={5} />
-      <CheckSwitch />
-      <CheckSwitch />
-      <CheckSwitch />
+      {filteredButtons(filterSwitches)}
       <Divider mb={5} />
-
       <Button colorScheme='brand' size='lg' alignSelf="center">
         Reset filter
       </Button>
@@ -74,9 +74,14 @@ export function ResultsSort({ }) {
 
 
 
-function MaxFlightDuration(props) {
-  const [sliderValue, setSliderValue] = React.useState(9)
-  const [showTooltip, setShowTooltip] = React.useState(false)
+function MaxFlightDuration({ maxFlightDuration, minFlightDuration }) {
+  //0.7 is almost 2/3 of max price
+const twoThirdsOfMax =Math.floor(maxFlightDuration * 0.7);
+
+
+  const [sliderValue, setSliderValue] = useState(twoThirdsOfMax)
+  const [showTooltip, setShowTooltip] = useState(false)
+
 
   return (
     <>
@@ -85,18 +90,17 @@ function MaxFlightDuration(props) {
       </Heading>
       <Slider
         h="10"
-        
         id='slider-duration'
         step={1}
-        defaultValue={9}
-        min={1}
-        max={24}
+        min={minFlightDuration}
+        max={maxFlightDuration}
+        value={sliderValue}
 
         onChangeEnd={() => setShowTooltip(false)}
 
         onChange={(v) => setSliderValue(v)}
         onMouseEnter={() => setShowTooltip(true)}
-         onMouseLeave={() => setShowTooltip(false)}
+        onMouseLeave={() => setShowTooltip(false)}
         onBlur={() => setShowTooltip(false)}
       >
         <SliderTrack bg='blue.200'>
@@ -110,7 +114,7 @@ function MaxFlightDuration(props) {
           isOpen={showTooltip}
           label={`${sliderValue}`}
         >
-          <SliderThumb  bg='brand.500'/>
+          <SliderThumb bg='brand.500' />
         </Tooltip>
       </Slider>
     </>
@@ -121,42 +125,54 @@ function MaxFlightDuration(props) {
 
 
 
-function CheckAirlines() {
-  const [checkedItems, setCheckedItems] = React.useState([true, true])
+function CheckAirlines({ airlinesList }) {
+  const [checkedItems, setCheckedItems] = useState(Array(airlinesList.length).fill(true))
 
   const allChecked = checkedItems.every(Boolean)
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked
+
+
+  const airlinesChecks = airlinesList.map((name, index, length) => {
+    return (
+      <Checkbox
+        key={`airlines-check-box-${index}`}
+        isChecked={checkedItems[index]}
+        onChange={e => setCheckedItems(state => {
+          state[index] = e.target.checked;
+          return [...state]
+        })}
+      >
+        {name}
+      </Checkbox>
+    )
+  });
+
 
   return (
     <>
       <Checkbox
         isChecked={allChecked}
         isIndeterminate={isIndeterminate}
-        onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
+        onChange={e => setCheckedItems(item => item.map(item => e.target.checked))}
       >
         Airlines
       </Checkbox>
-      <Stack pl={6} mt={1} spacing={1} mb={5}>
-        <Checkbox
-          isChecked={checkedItems[0]}
-          onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
-        >
-          El Al
-        </Checkbox>
-        <Checkbox
-          isChecked={checkedItems[1]}
-          onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
-        >
-          WizzAir
-        </Checkbox>
+
+      <Stack
+        pl={6}
+        mt={1}
+        spacing={1}
+        mb={5}>
+
+        {airlinesChecks}
       </Stack>
     </>
   )
 }
 
-function SliderTicketPrice({ }) {
-  const [sliderValue, setSliderValue] = React.useState(9)
-  const [showTooltip, setShowTooltip] = React.useState(false)
+function SliderTicketPrice({ maxPrice, minPrice }) {
+  const [sliderValue, setSliderValue] = useState(maxPrice)
+  const [showTooltip, setShowTooltip] = useState(false)
 
   return (
     <>
@@ -167,15 +183,15 @@ function SliderTicketPrice({ }) {
         h="10"
         id='slider-duration'
         step={1}
-        defaultValue={9}
-        min={1}
-        max={6000}
+        defaultValue={maxPrice}
+        min={minPrice}
+        max={maxPrice}
 
         onChangeEnd={() => setShowTooltip(false)}
 
         onChange={(v) => setSliderValue(v)}
         onMouseEnter={() => setShowTooltip(true)}
-         onMouseLeave={() => setShowTooltip(false)}
+        onMouseLeave={() => setShowTooltip(false)}
         onBlur={() => setShowTooltip(false)}
       >
         <SliderTrack bg='blue.200'>
@@ -189,7 +205,7 @@ function SliderTicketPrice({ }) {
           isOpen={showTooltip}
           label={`${sliderValue}`}
         >
-          <SliderThumb  bg='brand.500'/>
+          <SliderThumb bg='brand.500' />
         </Tooltip>
       </Slider>
     </>
@@ -197,13 +213,25 @@ function SliderTicketPrice({ }) {
   )
 }
 
-function CheckSwitch({ }) {
+function CheckSwitch({ filterName, filterLabel }) {
   return (
-  <FormControl display='flex' alignItems='center' mb={5} >
-    <FormLabel htmlFor='email-alerts' mb='0'>
-      Enable email alerts?
-    </FormLabel>
-    <Switch size='lg' id='email-alerts' />
-  </FormControl>
+    <FormControl
+      key={`result-switches-${filterName}`}
+      display='flex'
+      alignItems='center'
+      justifyContent='space-between'
+      mb={5}
+    >
+      <FormLabel
+        htmlFor={filterName}
+        mb='0'
+      >
+        {filterLabel}
+      </FormLabel>
+      <Switch
+        size='lg'
+        id={filterName}
+      />
+    </FormControl>
   );
 }
