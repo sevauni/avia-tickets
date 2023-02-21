@@ -11,6 +11,12 @@ import { ChooseParams } from './ParamsPortal/ParamsPortal';
 import './SearchBar.scss';
 
 
+//redux
+import { useSelector, useDispatch } from "react-redux";
+
+import {changeFromAirport} from '../../redux/actions/changeFromAirport.js'
+import {changeToAirport} from '../../redux/actions/changeToAirport.js'
+
 //cutsom Hook
 const useScrollPosition = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -26,7 +32,6 @@ const useScrollPosition = () => {
 
   return scrollPosition;
 };
-
 
 
 
@@ -91,15 +96,17 @@ const startOpacityTransition = (scrollPosition) => {
 
 export default function SearchBar({ }) {
 
-
   const scrollPosition = useScrollPosition();
-
   const navBarOpacity = startOpacityTransition(scrollPosition);
 
   //400 420
 
+  // const airports = useSelector((state) => state.paramsToFromReducer);
+  // const dispatch = useDispatch();
 
-
+  
+  // const [to, setTo] = useState(airports.name);
+  // const [from, setFrom] = useState(airports.name);
 
   return (
     <div className="search-bar">
@@ -121,7 +128,7 @@ export default function SearchBar({ }) {
         colorScheme='brand'
         variant='solid'
         bg="blue.500"
-        isLoading
+        //isLoading
         loadingText='Searching...'
       >
         <span>Search</span>

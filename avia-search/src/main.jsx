@@ -4,10 +4,12 @@ import App from './App'
 import './index.css'
 
 
-import { ChakraProvider } from '@chakra-ui/react'
+import store from './redux/store';
+import { Provider } from 'react-redux';
+
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 
 
-import { extendTheme } from "@chakra-ui/react"
 
 
 const theme = extendTheme({
@@ -43,10 +45,10 @@ const theme = extendTheme({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-
-
     <ChakraProvider theme={theme}>
-      <App />
+      < Provider store={store}>
+        <App />
+      </ Provider>
     </ChakraProvider>
-  </React.StrictMode>,
+  </React.StrictMode >,
 )
